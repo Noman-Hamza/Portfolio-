@@ -14,15 +14,7 @@ import {MONGODB_CONNECTION,PORT,MAX_JASON_SIZE,URL_ENCODED,WEB_CACHE,REQUEST_LIM
 const app = express();
 
 // Global Application Middleware
-app.use(cors(
-    {
-        credentials: true,
-        origin: [
-            "http://localhost:5173",
-
-        ],
-    }
-));
+app.use(cors());
 app.use(express.json({limit:MAX_JASON_SIZE}));
 app.use(express.urlencoded({ extended: URL_ENCODED }));
 app.use(hpp())
