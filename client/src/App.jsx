@@ -6,7 +6,9 @@ import BlogPage from "./Page/blog-page.jsx";
 import ServicePage from "./Page/service-page.jsx";
 import ContactPage from "./Page/contact-page.jsx";
 import LoginPage from "./Page/login-page.jsx";
-
+import Dashboard from "./component/dasbroad.jsx";
+import BlogMannage from "./page/BlogMannage.jsx";
+import ServiceMannage from "./page/ServiceMannage.jsx";
 
 const App = () => {
     return (
@@ -18,6 +20,9 @@ const App = () => {
                 <Route path="/service" element={<ServicePage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/login" element={<LoginPage />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/dashboard/blog" element={<BlogMannage />} />
+                <Route path="/dashboard/SERVICE" element={<ServiceMannage />} />
             </Routes>
         </BrowserRouter>
     );
