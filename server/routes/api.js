@@ -17,7 +17,7 @@ router.post("/Login",UserController.Login);
 
 
 ///Blog
-router.get("/CreateBlog",BlogController.CreateBlog);
+router.post("/CreateBlog",BlogController.CreateBlog);
 router.get("/ReadBlogByUser",AuthMiddleware,BlogController.ReadBlogByUser);
 router.get("/ReadAllBlog",BlogController.ReadAllBlog);
 router.post("/UpdateBlog/:BlogID",BlogController.UpdateBlog);

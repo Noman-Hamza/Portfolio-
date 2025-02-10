@@ -82,10 +82,7 @@ export const  BlogService=async (req,res)=>{
     try {
         let reqBody=req.body;
         await BlogModel.create(reqBody)
-
-
         return {status:"success","Message":"Blog Create  successfully"};
-
 
     }catch(err){
         return {status:"error","Message": err.toString()};
@@ -150,7 +147,7 @@ export const RemoveBlogListService = async (req) => {
 
 
 
-// ReadBlogByBlogIDServices
+// ReadBlogServices
 export const ReadAllBlogServices=async (req,res)=>{
 
     try {
@@ -159,7 +156,6 @@ export const ReadAllBlogServices=async (req,res)=>{
         let data = await BlogModel.aggregate([
             { $match: {} }, ProjectionStage
         ]);
-
 
         return {status:"success","Message":"Read Blog successfully",data:data};
 

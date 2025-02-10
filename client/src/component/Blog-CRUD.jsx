@@ -22,10 +22,15 @@ function BlogCRUD() {
     };
 
     const handleCreate = async () => {
+        console.log("handleCreate called", formData);
         try {
             const response = await axios.post(`${API_BASE_URL}/CreateBlog`, formData);
-            setBlogs((prevBlogs) => [...prevBlogs, response.data.data]);
-            setFormData({ title: "", des: "", img: "" });
+            if (response.data.status === "success") {
+                setBlogs((prevBlogs) => [...prevBlogs, response.data.data]);
+                setFormData({ title: "", des: "", img: "" });
+            } else {
+                console.error("Error creating blog:", response.data.message);
+            }
         } catch (error) {
             console.error("Error creating blog:", error);
         }
@@ -83,6 +88,7 @@ function BlogCRUD() {
                     className="bg-white p-5 shadow-md rounded mt-5 flex space-x-2"
                     onSubmit={(e) => {
                         e.preventDefault();
+                        console.log("Form submitted");  // Debugging statement
                         editingId ? handleUpdate() : handleCreate();
                     }}
                 >
