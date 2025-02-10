@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const API_BASE_URL = "http://localhost:5050/api";
 
 function BlogCRUD() {
+    const navigate = useNavigate();
     const [blogs, setBlogs] = useState([]);
     const [formData, setFormData] = useState({ title: "", des: "", img: "" });
     const [editingId, setEditingId] = useState(null);
@@ -77,6 +79,18 @@ function BlogCRUD() {
                 <h2 className="text-xl font-bold">Dashboard</h2>
                 <ul className="mt-5 space-y-2">
                     <li className="p-2 bg-gray-700 rounded">Blog Management</li>
+                    <li
+                        className="p-2 bg-gray-700 rounded cursor-pointer"
+                        onClick={() => navigate("/dashboard")}
+                    >
+                        Team Management
+                    </li>
+                    <li
+                        className="p-2 bg-gray-700 rounded cursor-pointer"
+                        onClick={() => navigate("/dashboard/service")}
+                    >
+                        Service Management
+                    </li>
                 </ul>
             </div>
 

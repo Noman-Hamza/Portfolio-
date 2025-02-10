@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const API_BASE_URL = "http://localhost:5050/api";
 
 function ServiceCRUD() {
+    const navigate = useNavigate();
     const [services, setServices] = useState([]);
     const [formData, setFormData] = useState({ service: "", des: "", img: "" });
     const [editingId, setEditingId] = useState(null);
@@ -69,13 +71,25 @@ function ServiceCRUD() {
             <div className="w-1/5 bg-gray-800 text-white p-5">
                 <h2 className="text-xl font-bold">Dashboard</h2>
                 <ul className="mt-5 space-y-2">
-                    <li className="p-2 bg-gray-700 rounded">ServiceCRUD Management</li>
+                    <li className="p-2 bg-gray-700 rounded">Service Management</li>
+                    <li
+                        className="p-2 bg-gray-700 rounded cursor-pointer"
+                        onClick={() => navigate("/dashboard")}
+                    >
+                        Team Management
+                    </li>
+                    <li
+                        className="p-2 bg-gray-700 rounded cursor-pointer"
+                        onClick={() => navigate("/dashboard/blog")}
+                    >
+                        Blog Management
+                    </li>
                 </ul>
             </div>
 
             {/* Main Content */}
             <div className="w-4/5 p-5">
-                <h1 className="text-2xl font-bold">ServiceCRUD CRUD Operations</h1>
+                <h1 className="text-2xl font-bold">Service CRUD Operations</h1>
 
                 {/* Form */}
                 <form
