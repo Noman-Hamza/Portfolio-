@@ -6,8 +6,7 @@ import BlogPage from "./Page/blog-page.jsx";
 import ServicePage from "./Page/service-page.jsx";
 import ContactPage from "./Page/contact-page.jsx";
 import LoginPage from "./Page/login-page.jsx";
-import DashboardPage from "./Page/dashboard-page.jsx";
-import PrivateRoute from "./component/PrivateRoute.jsx"; // Ensure PrivateRoute is imported
+
 
 const App = () => {
     return (
@@ -19,7 +18,6 @@ const App = () => {
                 <Route path="/service" element={<ServicePage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/login" element={<LoginPage />} />
-                <Route path="/dashboard" element={<PrivateRoute><DashboardPage /></PrivateRoute>} />
             </Routes>
         </BrowserRouter>
     );
