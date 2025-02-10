@@ -80,9 +80,7 @@ export const LoginService = async (req, res) => {
 export const  BlogService=async (req,res)=>{
 
     try {
-        let user_id=req.headers['user_id'];
         let reqBody=req.body;
-        reqBody.user_id=user_id;
         await BlogModel.create(reqBody)
 
 
@@ -125,10 +123,9 @@ export const ReadBlogByUserServices=async (req,res)=>{
 
 export const UpdateBlogListService = async (req) => {
     try {
-        let user_id=req.headers.user_id;
         let BlogID=req.params.BlogID;
         let reqBody=req.body;
-        await  BlogModel.updateOne({_id:BlogID,user_id:user_id},{$set:reqBody});
+        await  BlogModel.updateOne({_id:BlogID},{$set:reqBody});
         return {status:"success",message:"Blog List Update Success"}
     }
     catch (err) {
@@ -139,9 +136,7 @@ export const UpdateBlogListService = async (req) => {
 
 export const RemoveBlogListService = async (req) => {
     try {
-        let user_id=req.headers.user_id;
         let reqBody=req.body;
-        reqBody.user_id=user_id;
         await BlogModel.deleteOne(reqBody);
         return {status:"success",message:"Blog List Remove Success"}
     }
