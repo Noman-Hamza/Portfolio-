@@ -1,7 +1,7 @@
 
 import {
 
-        LoginService,
+        LoginService, LogoutService,
         registerService
 } from "../services/UsersService.js";
 
@@ -21,4 +21,12 @@ export const Registration=async (req, res)=>{
 //// Login
 export const Login = async (req, res) => {
         await LoginService(req, res);
+};
+
+export const Logout = async (req, res) => {
+        try {
+                await LogoutService(req, res);
+        } catch (err) {
+                return res.status(500).json({ status: "error", Message: err.toString() });
+        }
 };

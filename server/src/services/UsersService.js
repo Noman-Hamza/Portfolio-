@@ -74,6 +74,22 @@ export const LoginService = async (req, res) => {
     }
 }
 
+export const LogoutService = async (req, res) => {
+    try {
+        res.cookie('token', '', {
+            expires: new Date(0), // Expire the cookie immediately
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'strict'
+        });
+
+        return res.status(200).json({ status: "success", Message: "User logged out successfully" });
+    } catch (err) {
+        return res.status(500).json({ status: "error", Message: err.toString() });
+    }
+};
+
+
 
 
 //// BlogServices

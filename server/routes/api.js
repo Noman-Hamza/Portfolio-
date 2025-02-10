@@ -13,6 +13,7 @@ import AuthMiddleware from '../src/middlewares/authMiddleware.js';
 
 router.post("/Registration", UserController.Registration);
 router.post("/Login",UserController.Login);
+router.post("/Logout",UserController.Logout);
 
 
 

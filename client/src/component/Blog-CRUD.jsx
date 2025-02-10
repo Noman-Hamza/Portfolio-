@@ -62,6 +62,16 @@ function BlogCRUD() {
         }
     };
 
+    const handleLogout = async () => {
+        try {
+            await axios.post(`${API_BASE_URL}/logout`);
+            navigate("/");
+            window.location.reload();
+        } catch (error) {
+            setMessage("Error logging out");
+        }
+    };
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -91,6 +101,14 @@ function BlogCRUD() {
                     >
                         Service Management
                     </li>
+                    <li
+                        className="p-2 bg-gray-700 rounded cursor-pointer"
+                        onClick={handleLogout}
+                    >
+                        Logout
+                    </li>
+
+
                 </ul>
             </div>
 

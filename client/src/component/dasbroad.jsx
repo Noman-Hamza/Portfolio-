@@ -66,6 +66,15 @@ function Dashboard() {
             setMessage("Error deleting team");
         }
     };
+    const handleLogout = async () => {
+        try {
+            await axios.post(`${API_BASE_URL}/logout`);
+            navigate("/");
+            window.location.reload();
+        } catch (error) {
+            setMessage("Error logging out");
+        }
+    };
 
     const handleInputChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -94,6 +103,15 @@ function Dashboard() {
                     >
                         Service Management
                     </li>
+
+                    <li
+                        className="p-2 bg-gray-700 rounded cursor-pointer"
+                        onClick={handleLogout}
+                    >
+                        Logout
+                    </li>
+
+
                 </ul>
             </div>
 
