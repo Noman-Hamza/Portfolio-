@@ -64,6 +64,7 @@ function BlogCRUD() {
 
     const handleLogout = async () => {
         try {
+            localStorage.removeItem('token');
             await axios.post(`${API_BASE_URL}/logout`);
             navigate("/");
             window.location.reload();
