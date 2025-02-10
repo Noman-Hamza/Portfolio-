@@ -49,9 +49,18 @@ const LoginForm = () => {
             // Check if the login was successful
             if (result?.status?.toLowerCase() === "success" && result?.Message?.trim() === "User Login successfully") {
                 toast.success(result?.Message);
+
+                // Store the token in local storage
+                if (result.token) {
+                    localStorage.setItem("token", result.token);
+                }
+
                 setTimeout(() => {
                     navigate("/dashboard");
                 }, 1500); // Shorter time for better user experience
+
+                // Optionally reset form data after successful login
+                setData({ email: "", password: "" });
             } else {
                 // Handle login failure and show an error message
                 toast.error(result?.Message || "Invalid email or password.");
@@ -59,7 +68,7 @@ const LoginForm = () => {
         } catch (error) {
             // Handle any errors from the login API
             setLoading(false);
-            toast.error("An error occurred. Please try again.");
+            toast.error(error.response?.data?.Message || "An error occurred. Please try again.");
         }
     };
 
@@ -100,7 +109,7 @@ const LoginForm = () => {
                     {loading ? "Logging in..." : "Login"}
                 </button>
             </form>
-            <Toaster /> {/* Toast messages */}
+            <Toaster />
         </div>
     );
 };
