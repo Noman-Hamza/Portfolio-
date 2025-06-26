@@ -1,5 +1,5 @@
 import axios from "axios";
-const BaseURL="http://localhost:5050/api/";
+const BaseURL="https://portfolio-pi-ten-67.vercel.app/api/";
 
 
 export async function ReadHeroSection() {
