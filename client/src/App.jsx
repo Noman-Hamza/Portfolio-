@@ -7,8 +7,8 @@ import ServicePage from "./Page/service-page.jsx";
 import ContactPage from "./Page/contact-page.jsx";
 import LoginPage from "./Page/login-page.jsx";
 import Dashboard from "./component/dasbroad.jsx";
-import BlogMannage from "./page/BlogMannage.jsx";
-import ServiceMannage from "./page/ServiceMannage.jsx";
+import BlogMannage from "./Page/BlogMannage.jsx";
+import ServiceMannage from "./Page/ServiceMannage.jsx";
 import PrivateRoute from './component/PrivateRoute.jsx';
 
 const App = () => {
