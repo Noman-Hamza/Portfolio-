@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { TeamReadSection } from "../ApiRequest/APIRequest.js";
-import Loader from "./Loader.jsx";
+import Loader from "./loader.jsx";
 
 const Team = () => {
     const [list, setList] = useState([]);
