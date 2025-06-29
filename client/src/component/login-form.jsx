@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Loader from "./Loader.jsx";
+import Loader from "./loader.jsx";
 import { useNavigate } from "react-router-dom";
 import { login } from "../ApiRequest/APIRequest.js";
 import { Toaster, toast } from "react-hot-toast";
