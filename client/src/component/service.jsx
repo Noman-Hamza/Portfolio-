@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ServiceReadSection } from "../ApiRequest/APIRequest.js";
-import Loader from "./Loader.jsx";  // Assuming you have a Loader component
+import Loader from "./loader.jsx";  // Assuming you have a Loader component
 
 const Service = () => {
     // State for storing services and loading status
